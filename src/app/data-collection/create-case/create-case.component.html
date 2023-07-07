@@ -1,0 +1,107 @@
+<section style="background-color: #eee;" class="p-3 min-vh-100">
+    <div class="row ">
+        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+            <div class="row">
+                <div class="col-4">
+                    <h2>Create Case</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entering appID  -->
+        <div class="col-12 m-3 p-3 bg-light">
+            <div class="m-3">
+                 <label for="appid" class="form-label">App ID</label>
+                <input type="number"  id="appid" class="form-control mb-3" [(ngModel)]="typedAppId"  >
+            </div>
+            <div class="m-3">
+                <button type="submit" class="btn btn-primary m-1"  (click)="getEligibilityByAppID()">
+                    <i class="bi bi-search"></i>
+                    search
+                </button>
+                <button type="button" class="btn btn-primary" (click)="createCase()">
+                    <i class=" bi bi-plus"></i>
+                    New Case
+                </button>
+            </div>
+        </div>
+
+
+
+        <!-- List Of Cases  -->
+        <div class="con-12 rounded-2 bg-light m-3" *ngIf="eligibityDetails.length > 0">
+            <table class="table bg-light">
+                <thead>
+                    <tr>
+                        <th>
+                            Sl No
+                        </th>
+                        <th>
+                            Case Num
+                        </th>
+                        <th>
+                            Plan 
+                        </th>
+                        <th>
+                            Start Date
+                        </th>
+                        <th>
+                            End Date
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Reason
+                        </th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eligibility of eligibityDetails; let i = index"  >
+                       <td>
+                         {{i+1}}
+                       </td>
+                       <td>
+                         {{eligibility.caseNum}}
+                      </td>
+                      <td>
+                        {{eligibility.planName}}
+                      </td>
+                      <td>
+                        {{eligibility.planStartDate}}
+                     </td>
+                     <td>
+                        {{eligibility.planEndDate}}
+                      </td>
+                      <td>
+                        {{eligibility.benefitAmount}}
+                     </td>
+                     <td>
+                        {{eligibility.planStatus}}
+                      </td>
+                      <td>
+                        {{eligibility.denialReason}}
+                     </td>
+                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- No Record Found  -->
+        <div class="con-12 rounded-2 bg-light m-3"  *ngIf="eligibityDetails.length <= 0">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <h2>NO Record Found</h2>
+                </div>
+            </div>
+            
+        </div>
+
+     </div>
+</section>

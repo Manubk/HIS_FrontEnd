@@ -1,0 +1,29 @@
+<section style="background-color: #eee;" class="p-3 min-vh-100">
+    <div class="row ">
+        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+            <div class="row">
+                <div class="col-4">
+                    <h2>Plan Selection</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 m-3 p-3 bg-light">
+            <form action="">
+                <div class="mb-3">
+                    <label for="casenum" class="form-label">Case Number</label>
+                    <input type="number"  id="casenum" class="form-control" name="caseNum" [(ngModel)]="planselection.caseNum" >
+                </div>
+
+                <div>
+                    <label for="planName" class="form-label">Plan Name</label>
+                    <select name="" id="planName" class="form-select" name="planId" [(ngModel)]="planselection.planId">
+                        <option>-- Select --</option>
+                        <option [value]="plan.key" *ngFor="let plan of planList | keyvalue">{{plan.value}}</option>
+                    </select>
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary"(click)="savePlanSelection()">Submit</button>
+        </div>
+     </div>
+</section>

@@ -1,0 +1,40 @@
+<section style="background-color: #eee;" class="p-3 min-vh-100">
+    <div class="row ">
+        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+            <div class="row">
+                <div class="col-4">
+                    <h2>Education Details</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Detials  -->
+        <div class="col-12 m-3 p-3 bg-light">
+            <form id="educationDetailsForm" #dcEducationDetails="ngForm" (ngSubmit)="saveEducation(dcEducationDetails)"> 
+                <div class="mb-3">
+                    <label for="dcCaseNum" class="form-label">Case Number</label>
+                    <input type="number" name="caseNum" id="dcCaseNum" class="form-control" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="dcHighestQual" class="form-label">Highest Degree</label>
+                    <select name="highestQual" id="dcHighestQual" class="form-select" ngModel>
+                        <option value="BE">BE</option>
+                        <option value="B-Tech">B-Tech</option>
+                        <option value="MBA">MBA</option>
+                        <option value="BE">BE</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dcGradYear" class="form-label">Graduation Year</label>
+                    <input id="dcGradYear" type="date" class="form-control" name="gradYear" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label for="dcUniversityName" class="form-label">University Name</label>
+                    <input type="text" name="universityName" id="dcUniversityName" class="form-control " ngModel>
+                </div>
+            </form>
+           
+            <button type="submit" class="btn btn-primary" form="educationDetailsForm">Submit</button>
+        </div>
+     </div>
+</section>

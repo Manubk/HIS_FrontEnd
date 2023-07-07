@@ -1,0 +1,175 @@
+<section style="background-color: #eee;" class="p-3 min-vh-100">
+<div class="row">
+
+    <!-- Top Heading  -->
+    <div class="col-12 bg-light m-3 shadow rounded-1">
+        <div class="row">
+            <div class="col-4 m-3 ">
+                <h2>Summery </h2>
+            </div>
+        </div>
+    </div>
+    
+  <div class="col-12 bg-light shadow m-3 rounded-1">
+    <div class="row">
+        <div class="col-10">
+
+            <!-- Application Detaila  -->
+            <h5 class="m-3" >Application Details</h5>
+            <form >
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">App Id :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Full Name :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Number :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+                 <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Gender :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Date :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">SSN :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+    <!-- Case Details  -->
+    <div class="col-12 bg-light shadow m-3 rounded-1">
+        <div class="row">
+            <div class="col-10">
+    
+                <!-- Case Details  -->
+                <h5 class="m-3" >Case Details</h5>
+                <form action="">
+                    <div class="row mb-3">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Case Num :</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="colFormLabel" name="caseNum" [(ngModel)]="dataCollection.caseNum" disabled>
+                        </div>
+                    </div>
+    
+                    <div class="row mb-3">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Plan Name :</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="colFormLabel" name="planName" [(ngModel)]="dataCollection.planName" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    
+ <!-- Income Details  -->
+ <div class="col-12 bg-light shadow m-3 rounded-1">
+    <div class="row">
+        <div class="col-10">
+
+            <!-- Case Details  -->
+            <h5 class="m-3" >Income Details</h5>
+            <form action="">
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Salary :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="empIncome" [(ngModel)]="dataCollection.incomeDetails.empIncome" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Rent Income :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="rentIncome" [(ngModel)]="dataCollection.incomeDetails.rentIncome" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Property Income :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="propertyIncome" [(ngModel)]="dataCollection.incomeDetails.propertyIncome" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+
+   <!-- Education Details  -->
+ <div class="col-12 bg-light shadow m-3 rounded-1">
+    <div class="row">
+        <div class="col-10">
+
+            <h5 class="m-3" >Education Details</h5>
+            <form action="">
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Highest Degree :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="highestQual" [(ngModel)]="dataCollection.educationDetails.highestQual" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Graduation Year :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="gradYear" [(ngModel)]="dataCollection.educationDetails.gradYear" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">University Name :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="colFormLabel" name="universityName" [(ngModel)]="dataCollection.educationDetails.universityName" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+ <!-- Subbmit   -->
+ <div class="col-12 bg-light m-3 shadow rounded-1">
+    <div class="row">
+        <div class="col-4 m-3 ">
+           <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</section>

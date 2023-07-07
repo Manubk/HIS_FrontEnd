@@ -1,0 +1,113 @@
+
+    <aside class="float-start bg-light min-vh-100 p-4">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item">
+                <a routerLink="home" class="nav-link align-middle px-0">
+                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                </a>
+            </li>
+
+            <!-- Admin -->
+            <li>
+                <a href="#admin" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-person-lock"></i> <span class="ms-1 d-none d-sm-inline">Admin</span> 
+                </a>
+                <ul class="collapse show nav flex-column ms-1" id="admin" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a routerLink="createplan" class="nav-link px-0"> <span class="d-none d-sm-inline">Plans</span>  </a>
+                    </li>
+                    <li>
+                        <a routerLink="user" class="nav-link px-0"> <span class="d-none d-sm-inline">User</span>  </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- User Management  -->
+            <li>
+                <a href="#usermanagement" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="fs-4 bi bi-people-fill"></i> <span class="ms-1 d-none d-sm-inline">User Management</span></a>
+                <ul class="collapse nav flex-column ms-1" id="usermanagement" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a routerLink='profile' class="nav-link px-0"> <span class="d-none d-sm-inline">Profile</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="dashboard" class="nav-link px-0"> <span class="d-none d-sm-inline">Dashboard</span> </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Application Registration -->
+            <li>
+                <a href="#applicationregistration" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="fs-4 bi bi-person-fill-up"></i> <span class="ms-1 d-none d-sm-inline">Application Reg</span></a>
+                <ul class="collapse nav flex-column ms-1" id="applicationregistration" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a routerLink="application" class="nav-link px-0"> <span class="d-none d-sm-inline">Create Application</span> </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">View Application</span> </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Data Collection  -->
+            <li>
+                <a href="#datacollection" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="fs-4 bi bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Data Collection</span></a>
+                <ul class="collapse nav flex-column ms-1" id="datacollection" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a routerLink="case" class="nav-link px-0"> <span class="d-none d-sm-inline">Creat Case</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="planselection" class="nav-link px-0"> <span class="d-none d-sm-inline">Plan Selection</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="income" class="nav-link px-0"> <span class="d-none d-sm-inline">Income Details</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="" class="nav-link px-0"> <span class="d-none d-sm-inline">Bank Details</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="education" class="nav-link px-0"> <span class="d-none d-sm-inline">Education Details</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="kids" class="nav-link px-0"> <span class="d-none d-sm-inline">Kids Details</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="summery" class="nav-link px-0"> <span class="d-none d-sm-inline">Summary Screen</span> </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- Eligibility Determination  -->
+            <li>
+                <a routerLink="eligibility" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-universal-access"></i> <span class="ms-1 d-none d-sm-inline">Eligibility </span> </a>
+            </li>
+
+            <!-- Correspondence  -->
+            <li>
+                <a href="#" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-ui-checks"></i> <span class="ms-1 d-none d-sm-inline">Correspondence</span> </a>
+            </li>
+
+            <!-- Benefit Issuance  -->
+            <li>
+                <a href="#" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-building-check"></i> <span class="ms-1 d-none d-sm-inline">Benefit Issuance</span> </a>
+            </li>
+
+            <!-- Reports  -->
+            <li>
+                <a href="#dataReport" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                    <i class="fs-4 bi bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Reports</span></a>
+                <ul class="collapse nav flex-column ms-1" id="dataReport" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a routerLink="eligibilityReports" class="nav-link px-0"> <span class="d-none d-sm-inline">Eligibility Report</span> </a>
+                    </li>
+            
+                </ul>
+            </li>
+
+        </ul>
+    </aside>

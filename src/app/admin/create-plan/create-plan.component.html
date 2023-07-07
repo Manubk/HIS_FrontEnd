@@ -1,0 +1,247 @@
+<section style="background-color: #eee" class="min-vh-100">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>Create Plan</h2>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi bi-plus-lg"></i>
+                            Add Plan
+                          </button>
+                        </div>
+                </div>
+            </div>
+         </div>
+    
+      <!-- Modal For Adding Plan-->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Plan</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #planForm="ngForm" (ngSubmit)="savePlan(planForm)" >
+                    <!-- Plan Name  -->
+                         <div class="mb-3">
+                             <label for="planname" class="form-label">Plan Name</label>
+                             <input type="text" class="form-control" id="planname" name="planName" ngModel required>
+                         </div>
+                     
+                      <!-- Plan Category  -->
+                      <div class="mb-3">
+                         <label for="plancategory" class="form-label">Plan Category</label>
+                         <div class="input-group ">
+                             <select class="form-select" name="planCategoryId" id="plancategory" ngModel required>
+                                 <option selected  >--Select--</option>
+                                 <option  *ngFor="let category of  categories | keyvalue" [ngValue]="category.key">{{category.value}}</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                      <!-- Plan Start Date -->
+                      <div class="mb-3">
+                         <label for="planstartdate" class="form-label">Plan Start Date</label>
+                         <div class="input-group">
+                             <input type="date" class="form-control"  id="planstartdate" name="planStartDate"  ngModel  required>
+                             <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                         </div>
+                      </div>
+         
+                      <!-- Plan End Date  -->
+                      <div class="mb-3">
+                         <label for="planstartdate" class="form-label">Plan End Date</label>
+                         <div class="input-group">
+                             <input type="date" class="form-control"  id="planstartdate" name="planEndDate" ngModel required>
+                             <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                         </div>
+                      </div>
+         
+                      <!-- Plan Status  -->
+                      <div class="mb-3">
+                         <label for="planstatus">Plan Status</label>
+                         <div class="input-group">
+                             <select class="form-select" id="planstatus" name="activeSw" ngModel>
+                                 <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">{{sta.value}}</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                     <!-- Benefit amount  -->
+                     <div class="mb-3">
+                         <label for="benefitamount" class="form-label">Benefit Amount</label>
+                         <div class="input-group">
+                             <span class="input-group-text">$</span>
+                             <input type="number" class="form-control" aria-label="Amoount" id="benefitamount" name="benefitAmt" ngModel required>
+                             <span class="input-group-text">.00</span>
+                         </div>
+                     </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+       <!-- Modal For Edting Plan-->
+    <div class="modal fade" id="editplan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Plans</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  (ngSubmit)="savePlan(planForm)" >
+                    <!-- Plan Name  -->
+                         <div class="mb-3">
+                             <label for="planname" class="form-label">Plan Name</label>
+                             <input type="text" class="form-control" id="planname" name="planName" [value]="plan.planName" required>
+                         </div>
+    
+                      <!-- Plan Category  -->
+                      <div class="mb-3">
+                         <label for="plancategory" class="form-label">Plan Category</label>
+                         <div class="input-group ">
+                             <select class="form-select"  id="plancategory" [value]="plan.planName" required>
+                                 <!-- <option>-- Select --</option> -->
+                                 <option  *ngFor="let plan of  plans | keyvalue" [ngValue]="plan.key">{{plan.value}}</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                      <!-- Plan Start Date -->
+                      <div class="mb-3">
+                         <label for="planstartdate" class="form-label">Plan Start Date</label>
+                         <div class="input-group">
+                             <input type="date" class="form-control"  id="planstartdate" name="planStartDate"  [value]="plan.planStartDate" required>
+                             <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                         </div>
+                      </div>
+         
+                      <!-- Plan End Date  -->
+                      <div class="mb-3">
+                         <label for="planstartdate" class="form-label">Plan End Date</label>
+                         <div class="input-group">
+                             <input type="date" class="form-control"  id="planstartdate" name="planEndDate" [value]="plan.planEndDate" required>
+                             <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                         </div>
+                      </div>
+         
+                      <!-- Plan Status  -->
+                      <div class="mb-3">
+                         <label for="planstatus">Plan Status</label>
+                         <div class="input-group">
+                             <select class="form-select"  id="planstatus" name="activeSw" [value]="plan.activeSw">
+                                 <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">{{sta.value}}</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                     <!-- Benefit amount  -->
+                     <div class="mb-3">
+                         <label for="benefitamount" class="form-label">Benefit Amount</label>
+                         <div class="input-group">
+                             <span class="input-group-text">$</span>
+                             <input type="number" class="form-control" aria-label="Amoount" id="benefitamount" name="benefitAmt" [value]="plan.benefitAmt" required>
+                             <span class="input-group-text">.00</span>
+                         </div>
+                     </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <div class="row">
+     <!-- All Plans  -->
+     <div class="col-12 m-3 shadow rounded-1 p-3 bg-light">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center ">All Plans</h2>
+            </div>
+            <div class="col-12">
+                <div class="row mb-3 p-1 bg-dark-subtle">
+                    <div class="col-1 text-center ">
+                        <Strong class="">Name</Strong>
+                    </div>
+                    <div class="col-1 text-center ">
+                        <Strong class="">Category</Strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <Strong class="">Start Date</Strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <Strong class="">End Date</Strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <Strong class="">Amount</Strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <Strong class="">Status</Strong>
+                    </div>
+                    <div class="col-2 text-center">
+                        <Strong class="">Action</Strong>
+                    </div>
+                </div>
+    
+                <div class="row mb-2" *ngFor="let plan of planss">
+                    <div class="col-1">
+                        <p class="">{{plan.planName}}</p>
+                    </div>
+                    <div class="col-1">
+                        <p class="">{{plan.planCategoryId}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="">{{plan.planStartDate}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="">{{plan.planEndDate}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="">{{plan.benefitAmt}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="">{{plan.activeSw}}</p>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-4">
+                                <button class="btn btn-warning btn" data-bs-toggle="modal" data-bs-target="#editplan" (click)="editPlan(plan)">Edit</button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-danger btn" (click)="deletePlan(plan.planId)">Delete</button>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+    
+</section>
