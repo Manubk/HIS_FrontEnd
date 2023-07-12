@@ -1,27 +1,50 @@
-# Hisfrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+# Health Insurance System
 
-## Development server
+A BeautyFull front end for HIS Project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Business Requiements
 
-## Build
+- Plans Management
+- User / Case Workers Management
+- Report Managment
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+![App Screenshot](https://github.com/Manubk/HIS_FrontEnd/assets/106378286/61833860-dcbb-4e75-8a76-0ce412ff503c)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![](https://github.com/Manubk/HIS_FrontEnd/assets/106378286/221fe708-691c-4d4e-b271-c92f41c0b824)
+![](https://github.com/Manubk/HIS_FrontEnd/assets/106378286/43ac1a94-3e84-4caa-9c6d-2d991a459385)
+![](https://github.com/Manubk/HIS_FrontEnd/assets/106378286/688d62d7-a00c-477a-915e-3892bdd4f677)
 
-## Further help
+## Run Locally
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Node , angular should be installed then 
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd hisfrontend
+```
+
+
+Start the server
+
+```bash
+ ng serve
+```
+
+
+## 🛠 Skills
+Javascript, HTML,TypeScript,Angular,CSS...
+
