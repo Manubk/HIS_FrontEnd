@@ -1,31 +1,33 @@
 <section style="background-color: #eee;" class="p-3 min-vh-100">
-    <div class="row ">
-        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Bank Details</h2>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+                <div class="row">
+                    <div class="col-5">
+                        <h2>BANK DETAILS</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Income Details  -->
-        <div class="col-12 m-3 p-3 bg-light">
-            <form id="backDetails" #bankDetails="ngForm" (ngSubmit)="saveBank(bankDetails)">
-                <div class="mb-3">
-                    <label for="dcCaseNum" class="form-label">Case Number</label>
-                    <input type="number" name="caseNum" id="dcCaseNum" class="form-control " ngModel disabled="">
-                </div>
-                <div class="mb-3">
-                    <label for="bankName" class="form-label">Bank Name</label>
-                    <input type="text" name="bankName" id="bankName" class="form-control" ngModel>
-                </div>
-                <div class="mb-3">
-                    <label for="accNumber" class="form-label">Account Number</label>
-                    <input type="number" name="accNumber" id="accNumber" class="form-control " ngModel>
-                </div>
-            </form>
-           
-            <button type="submit" class="btn btn-primary" form="backDetails">Submit</button>
-        </div>
-     </div>
+    
+            <!-- Income Details  -->
+            <div class="col-12 m-3 p-3 shadow rounded-1 bg-light">
+                <form id="backDetails" >
+                    <div class="mb-3">
+                        <label for="dcCaseNum" class="form-label">Case Number</label>
+                        <input type="number" name="caseNum" id="dcCaseNum" class="form-control " [(ngModel)]="bankDetails.caseNum">
+                    </div>
+                    <div class="mb-3">
+                        <label for="bankName" class="form-label">Bank Name</label>
+                        <input type="text" name="bankName" id="bankName" class="form-control" [(ngModel)]="bankDetails.bankName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="accNumber" class="form-label">Account Number</label>
+                        <input type="number" name="accNumber" id="accNumber" class="form-control " [(ngModel)]="bankDetails.accNumber">
+                    </div>
+                </form>
+               
+                <button type="submit" class="btn btn-primary" form="backDetails" (click)="saveBank()">Submit</button>
+            </div>
+         </div>
+    </div>
 </section>

@@ -1,219 +1,230 @@
-<div class="container-fluid">
-    <div class="row ">
-        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 ">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Create Application</h2>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="bi bi-plus-lg"></i>
-                        Add Application
-                      </button>
+<section style="background-color: #eee" class="min-vh-100">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 m-3  bg-light shadow rounded-1 p-3 fs-4 ">
+                <div class="row ">
+                    <div class="col-5">
+                        <h2>CREATE APPLICATION</h2>
                     </div>
-            </div>
-        </div>
-     </div>
-
-  <!-- Modal For Adding Application-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Applicant</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form #appForm="ngForm" (submit)="saveApplicant(appForm)" id="appAddForm" >
-                <!-- Full Name  -->
-                     <div class="mb-3">
-                         <label for="appFullName" class="form-label">Full Name</label>
-                         <input type="text" class="form-control" id="appFullName"name="fullName" ngModel  required>
-                     </div>
-                 
-                  <!--  Email  -->
-                  <div class="mb-3">
-                     <label for="appEmail" class="form-label">Email</label>
-                     <div class="input-group ">
-                        <input type="email" class="form-control" placeholder="example@email.com" name="email" id="appEmail" ngModel>
-                     </div>
-                  </div>
-     
-                  <!--  Phone No -->
-                  <div class="mb-3">
-                     <label for="appPhoneNo" class="form-label">Phone No</label>
-                     <div class="input-group">
-                         <input type="number" class="form-control"  id="appPhoneNo"  name="phoneNo" ngModel  required>
-                        
-                     </div>
-                  </div>
-     
-                  <!-- User Gender -->
-                  <div class="mb-3">
-                     <label for="appGender" class="form-label">Gender</label>
-                     <div class="input-group">
-                         <select class="form-select" name="gender" id="appGender" ngModel>
-                            <option value="M">Male</option>
-                            <option value="F">FeMale</option>
-                            <option value="O">Others</option>
-                         </select>
-                     </div>
-                  </div>
-     
-                  <!--User SSN  -->
-                  <div class="mb-3">
-                     <label for="appSsn">SSN</label>
-                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="xxx-xx-xxxx" id="appSsn" name="ssn" ngModel >
-                     </div>
-                  </div>
-     
-                 <!-- User Dob  -->
-                 <div class="mb-3">
-                     <label for="appDob" class="form-label">Dob</label>
-                         <input type="date" class="form-control" aria-label="Amoount" id="appDob" name="dob" ngModel required>
-                 </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" form="appAddForm" >Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-   <!-- Modal For Edting Applicent-->
-<div class="modal fade" id="usereditmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Plans</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form  id="appEditFrom" >
-                <!-- Full Name  -->
-                     <div class="mb-3">
-                         <label for="appFullName" class="form-label">Full Name</label>
-                         <input type="text" class="form-control" id="appFullName"name="fullName" [(ngModel)]="selectedUser.fullName"  required>
-                     </div>
-                 
-                  <!--  Email  -->
-                  <div class="mb-3">
-                     <label for="appEmail" class="form-label">Email</label>
-                     <div class="input-group ">
-                        <input type="email" class="form-control" placeholder="example@email.com" name="email" id="appEmail" [(ngModel)]="selectedUser.email">
-                     </div>
-                  </div>
-     
-                  <!--  Phone No -->
-                  <div class="mb-3">
-                     <label for="appPhoneNo" class="form-label">Phone No</label>
-                     <div class="input-group">
-                         <input type="number" class="form-control"  id="appPhoneNo"  name="phoneNo" [(ngModel)]="selectedUser.phoneNo"  required>
-                        
-                     </div>
-                  </div>
-     
-                  <!-- User Gender -->
-                  <div class="mb-3">
-                     <label for="appGender" class="form-label">Gender</label>
-                     <div class="input-group">
-                         <select class="form-select" name="gender" id="appGender" [(ngModel)]="selectedUser.gender">
-                            <option value="M">Male</option>
-                            <option value="F">FeMale</option>
-                            <option value="O">Others</option>
-                         </select>
-                     </div>
-                  </div>
-     
-                  <!--User SSN  -->
-                  <div class="mb-3">
-                     <label for="appSsn">SSN</label>
-                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="xxx-xx-xxxx" id="appSsn" name="ssn" [(ngModel)]="selectedUser.ssn" >
-                     </div>
-                  </div>
-     
-                 <!-- User Dob  -->
-                 <div class="mb-3">
-                     <label for="appDob" class="form-label">Dob</label>
-                         <input type="date" class="form-control" aria-label="Amoount" id="appDob" name="dob" [(ngModel)]="selectedUser.dob" required>
-                 </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" form="appEditFrom" (click)="updateApp()">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
- <!-- All Plans  -->
- <div class="col-12 m-3 shadow rounded-1 p-2 ">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-center ">All Users</h2>
-        </div>
-        <div class="col-12">
-            <div class="row">
-                <Table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sl No</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">EMAIL</th>
-                            <th scope="col">PHONE</th>
-                            <th scope="col">GENDER</th>
-                            <th scope="col">SSN</th>
-                            <th scope="col">DOB</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of users; let i = index;">
-                            <td>
-                                {{i+1}}
-                            </td>
-                            <td>
-                                {{user.fullName}}
-                            </td>
-                            <td>
-                                {{user.email}}
-                            </td>
-                            <td>
-                                {{user.phoneNo}}
-                            </td>
-                            <td>
-                                {{user.gender}}
-                            </td>
-                            <td>
-                                {{user.ssn}}
-                            </td>
-                            <td>
-                                {{user.dob}}
-                            </td>
-                            <td>
-                                <button class="btn btn-info btn-sm m-1" type="button" data-bs-toggle="modal" data-bs-target="#usereditmodal" (click)="onEdit(user)">Edit</button>
-                                <button class="btn btn-danger btn-sm m-1">CreateCase</button>
-                                <!-- <button class="btn btn-danger btn-sm m-1" (click)="deleteApp(user.appId)">Delete</button> -->
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-
+    
+                    <div class="col ">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi bi-plus-lg"></i>
+                            Add Application
+                          </button>
+                        </div>
                 </div>
             </div>
+         </div>
+    
+      <!-- Modal For Adding Application-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Applicant</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #appForm="ngForm" (submit)="saveApplicant(appForm)" id="appAddForm" >
+                    <!-- Full Name  -->
+                         <div class="mb-3">
+                             <label for="appFullName" class="form-label">Full Name</label>
+                             <input type="text" class="form-control" id="appFullName"name="fullName" ngModel  required>
+                         </div>
+                     
+                      <!--  Email  -->
+                      <div class="mb-3">
+                         <label for="appEmail" class="form-label">Email</label>
+                         <div class="input-group ">
+                            <input type="email" class="form-control" placeholder="example@email.com" name="email" id="appEmail" ngModel>
+                         </div>
+                      </div>
+         
+                      <!--  Phone No -->
+                      <div class="mb-3">
+                         <label for="appPhoneNo" class="form-label">Phone No</label>
+                         <div class="input-group">
+                             <input type="number" class="form-control"  id="appPhoneNo"  name="phoneNo" ngModel  required>
+                            
+                         </div>
+                      </div>
+         
+                      <!-- User Gender -->
+                      <div class="mb-3">
+                         <label for="appGender" class="form-label">Gender</label>
+                         <div class="input-group">
+                             <select class="form-select" name="gender" id="appGender" ngModel>
+                                <option value="M">Male</option>
+                                <option value="F">FeMale</option>
+                                <option value="O">Others</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                      <!--User SSN  -->
+                      <div class="mb-3">
+                         <label for="appSsn">SSN</label>
+                         <div class="input-group">
+                            <input type="text" class="form-control" placeholder="xxx-xx-xxxx" id="appSsn" name="ssn" ngModel >
+                         </div>
+                      </div>
+         
+                     <!-- User Dob  -->
+                     <div class="mb-3">
+                         <label for="appDob" class="form-label">Dob</label>
+                             <input type="date" class="form-control" aria-label="Amoount" id="appDob" name="dob" ngModel required>
+                     </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="appAddForm" >Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+       <!-- Modal For Edting Applicent-->
+    <div class="modal fade" id="usereditmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Plans</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  id="appEditFrom" >
+                    <!-- Full Name  -->
+                         <div class="mb-3">
+                             <label for="appFullName" class="form-label">Full Name</label>
+                             <input type="text" class="form-control" id="appFullName"name="fullName" [(ngModel)]="selectedUser.fullName"  required>
+                         </div>
+                     
+                      <!--  Email  -->
+                      <div class="mb-3">
+                         <label for="appEmail" class="form-label">Email</label>
+                         <div class="input-group ">
+                            <input type="email" class="form-control" placeholder="example@email.com" name="email" id="appEmail" [(ngModel)]="selectedUser.email">
+                         </div>
+                      </div>
+         
+                      <!--  Phone No -->
+                      <div class="mb-3">
+                         <label for="appPhoneNo" class="form-label">Phone No</label>
+                         <div class="input-group">
+                             <input type="number" class="form-control"  id="appPhoneNo"  name="phoneNo" [(ngModel)]="selectedUser.phoneNo"  required>
+                            
+                         </div>
+                      </div>
+         
+                      <!-- User Gender -->
+                      <div class="mb-3">
+                         <label for="appGender" class="form-label">Gender</label>
+                         <div class="input-group">
+                             <select class="form-select" name="gender" id="appGender" [(ngModel)]="selectedUser.gender">
+                                <option value="M">Male</option>
+                                <option value="F">FeMale</option>
+                                <option value="O">Others</option>
+                             </select>
+                         </div>
+                      </div>
+         
+                      <!--User SSN  -->
+                      <div class="mb-3">
+                         <label for="appSsn">SSN</label>
+                         <div class="input-group">
+                            <input type="text" class="form-control" placeholder="xxx-xx-xxxx" id="appSsn" name="ssn" [(ngModel)]="selectedUser.ssn" >
+                         </div>
+                      </div>
+         
+                     <!-- User Dob  -->
+                     <div class="mb-3">
+                         <label for="appDob" class="form-label">Dob</label>
+                             <input type="date" class="form-control" aria-label="Amoount" id="appDob" name="dob" [(ngModel)]="selectedUser.dob" required>
+                     </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="appEditFrom" (click)="updateApp()">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <div class="row">
+     <!-- All Plans  -->
+     <div class="col-12 m-3 shadow rounded-1 p-2 bg-light " *ngIf="users.length > 0 ">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h2 class="text-center ">All Applicants</h2>
+            </div>
+    
+            <div class="col-12">
+                <div class="row">
+                    <div class="table-responsive">
+                        <Table class="table table-hover">
+                            <thead class="text-center">
+                                <tr>
+                                    <th scope="col">Sl No</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">EMAIL</th>
+                                    <th scope="col">PHONE</th>
+                                    <th scope="col">GENDER</th>
+                                    <th scope="col">SSN</th>
+                                    <th scope="col">DOB</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of users; let i = index;">
+                                    <td>
+                                        {{i+1}}
+                                    </td>
+                                    <td>
+                                        {{user.fullName}}
+                                    </td>
+                                    <td>
+                                        {{user.email}}
+                                    </td>
+                                    <td>
+                                        {{user.phoneNo}}
+                                    </td>
+                                    <td>
+                                        {{user.gender}}
+                                    </td>
+                                    <td>
+                                        {{user.ssn}}
+                                    </td>
+                                    <td>
+                                        {{user.dob}}
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-info btn-sm m-1" type="button" data-bs-toggle="modal" data-bs-target="#usereditmodal" (click)="onEdit(user)">Edit</button>
+                                        <button class="btn btn-danger btn-sm m-1" (click)="createCase(user)" >CreateCase</button>
+                                        <!-- <button class="btn btn-danger btn-sm m-1" (click)="deleteApp(user.appId)">Delete</button> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </Table>
+        
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- No Data Found  -->
+            <div class="col-12 m-3 shadow rounded-1 p-2 bg-light " *ngIf="users.length <=0 ">
+                <app-no-record-found></app-no-record-found>
             </div>
         </div>
     </div>
-</div>
-
-
- 
+    
+    
+     
+ </section>

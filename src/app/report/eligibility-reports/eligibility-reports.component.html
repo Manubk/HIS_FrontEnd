@@ -1,11 +1,124 @@
 <section style="background-color: #eee;" class="p-3 min-vh-100">
-    <div class="row ">
-        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Reports</h2>
+    <div class="container">
+        <div class="row ">
+
+            <!-- Header Section  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>REPORTS</h2>
+                    </div>
                 </div>
             </div>
+
+            <!-- Body Section  -->
+            <div class="col-12 m-3 p-3 shadow rounded-1 bg-light">
+
+                <!-- Search Component Section  -->
+                <form id="reportSearch" (ngSubmit)="onSearch()">
+                    <div class="row ">
+                        <div class="col-2">
+                            <div class="mb-3">
+                                <label for="searchPlanName" class="form-label">Plan Name</label>
+                                <select class="form-select" name="planName" [(ngModel)]="searchRequest.planName">
+                                    <option selected>--Select--</option>
+                                    <option *ngFor="let planName of uniqueSearchValues.uniquePlans">{{planName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="mb-3">
+                                <label for="searchPlanStatus" class="form-label">Plan Status</label>
+                                <select id="planStatus" class="form-select" name="planStatus"
+                                    [(ngModel)]="searchRequest.planStatus">
+                                    <option selected>--Select--</option>
+                                    <option *ngFor="let status of uniqueSearchValues.uniqueStatus" ngValue="status">
+                                        {{status}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="mb-3">
+                                <label for="searchPlanStartDate" class="form-label">Plan Start Date</label>
+                                <select id="searchPlanStartDate" class="form-select" name="planStartDate"
+                                    [(ngModel)]="searchRequest.planStartDate">
+                                    <option selected>--Select--</option>
+                                    <option *ngFor="let date of uniqueSearchValues.uniqueStartDates" ngValue="status">
+                                        {{date}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="mb-3">
+                                <label for="searchPlanEndDate" class="form-label">Plan End Date</label>
+                                <select id="searchPlanEntDate" class="form-select" name="planEndDate"
+                                    [(ngModel)]="searchRequest.planEndDate">
+                                    <option selected>--Select--</option>
+                                    <option *ngFor="let date of uniqueSearchValues.uniqueEndDates" ngValue="status">
+                                        {{date}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2 d-flex">
+                            <div class="mb-3 align-self-center">
+                                <button class="btn btn-primary" form="reportSearch" type="submit"><i
+                                        class="bi bi-search me-2"></i>Search</button>
+                            </div>
+                        </div>
+
+                        <div class="col-2 d-flex">
+                            <div class="mb-3 align-self-center">
+                                <button class="btn btn-success"><i
+                                        class="bi bi-file-earmark-spreadsheet me-2"></i>Export</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <hr class="hr" />
+
+                <!-- Search Results  -->
+                <div class="row" *ngIf="eligReports.length > 0">
+                    <div class="table-responsive">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">S.NO</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Number</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">SSN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let rep of eligReports;let i =index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{rep.fullName}}</td>
+                                    <td>{{rep.email}}</td>
+                                    <td>{{rep.phoneNo}}</td>
+                                    <td>{{rep.gender}}</td>
+                                    <td>{{rep.ssn}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- No Data Fount  -->
+                <div class="col-12 m-3 p-3 shadow rounded-1 bg-light" *ngIf="eligReports.length <= 0">
+                    <app-no-record-found></app-no-record-found>
+                </div>
+
+
         </div>
-</div>
+    </div>
 </section>

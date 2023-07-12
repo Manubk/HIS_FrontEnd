@@ -1,5 +1,5 @@
 export class IncomeDetails {
-    caserNum!:number;
+    caseNum!:number;
     empIncome!:number;
     rentIncome!:number;
     propertyIncome!:number;

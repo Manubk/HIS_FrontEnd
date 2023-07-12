@@ -53,4 +53,9 @@ export class DataCollectionServiceService {
   saveBank(bankDetails:BankDetails){
     return this.http.post(this.baseUrl+'bank',bankDetails);
   }
+
+  //To get the dataSummery basedOd caseNum
+  getSummery(caseNum:number){
+    return this.http.get(this.baseUrl+'summary/'+caseNum);
+  }
 }

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Plan } from '../model/plan';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +20,12 @@ export class AdminServiceService {
     console.log(this.baseUrl);
     console.log(plan);
    return this.http.post(this.baseUrl+'plan',plan);
+  }
+
+  //To save edited Plans
+  saveEditedPlas(plan:Plan){
+    console.log(plan);
+    return this.http.post(this.baseUrl+'plan',plan);
   }
 
   //Get All Plans

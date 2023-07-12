@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Form, FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataSummery } from 'src/app/model/data-summery';
 import { KidDetails } from 'src/app/model/kid-details';
 import { KidsList } from 'src/app/model/kids-list';
 import { DataCollectionServiceService } from 'src/app/services/data-collection-service.service';
+import { SharedServiceService } from 'src/app/services/shared-service.service';
 
 @Component({
   selector: 'app-kids-details',
@@ -13,13 +16,21 @@ export class KidsDetailsComponent {
 
   caseNum!:number;
 
-  kid:KidDetails[] = [];
+  childrens:KidDetails[] = [];
 
-  kidsList:KidsList = new KidsList();
+  childrendPerCase:KidsList = new KidsList();
 
-  constructor(private dataCol:DataCollectionServiceService){}
+  symmary!:DataSummery;
+
+  constructor(private dataCol:DataCollectionServiceService,private sharedSer:SharedServiceService,private router:Router){}
+
+  ngOnInit(){
+    this.childrendPerCase.caseNum = this.sharedSer.caseNum;
+    console.log('kids '+this.childrendPerCase.caseNum);
+  }
 
   kidsDetailForm:FormGroup = new FormGroup({
+    caseNumForm : new FormControl(this.sharedSer.caseNum),
     kidsList:new FormArray([this.getKidFields()])
   });
 
@@ -42,14 +53,25 @@ export class KidsDetailsComponent {
     this.kidslistArray().removeAt(i);
   }
 
+  getCaseNum(){
+   return this.kidsDetailForm.get('caseNumForm') as FormControl;
+  }
+
 
   //To save Kids Details
   saveKids(kidsDetsails:FormGroup){
-    this.kidsList.caseNum = 232;
-    this.kidsList.kidsList = this.kidslistArray().value;
-    this.dataCol.saveKids(this.kidsList).subscribe((data:any) => {
+    this.childrendPerCase.caseNum = this.getCaseNum().value;
+    this.childrendPerCase.childrens = this.kidslistArray().value;
+    console.log(this.childrendPerCase);
+    this.dataCol.saveKids(this.childrendPerCase).subscribe((data:any) => {
       console.log(data);
+      this.symmary = data.value
+      console.log('after saving kids');
+      console.log(this.symmary);
+      this.sharedSer.summery = this.symmary;
+      this.router.navigateByUrl('summery');
    });
+
   }
 
 }

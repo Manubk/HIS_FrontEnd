@@ -1,58 +1,60 @@
 <section style="background-color: #eee;" class="p-3 min-vh-100">
-    <div class="row ">
-        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Kids Details</h2>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>KIDS DETAILS</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-12 m-3 p-3 bg-light">
-            <form [formGroup]="kidsDetailForm">
-                <div class="mb-3">
-                    <label for="casenum" class="form-label">Case Number</label>
-                    <input type="number" name="" id="casenum" class="form-control " disabled>
-                </div>
-
-                <!-- List Of Kids  -->
-                <div class="mb-3" formArrayName="kidsList" >
-                    <div class="row" *ngFor="let kid of kidslistArray().controls; let i = index;" [formGroupName]="i">
-                
-                        <div class="col-4">
-                            <label for="kidDob" class="form-label">Dob</label>
-                            <input type="date"  id="kidDob" class="form-control"  formControlName="childrenDob">
-                        </div>
-
-                        <div class="col-4">
-                            <label for="kidssn" class="form-label">SSN</label>
-                            <input type="text" name="" id="kidssn" class="form-control " placeholder="xxx-xx-xxxx" formControlName="ssn">
-                        </div>
-                        <div class="col-4">
-                            <label for="action" class="form-label">Action</label>
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button type="button" id="action" class="btn btn-primary" (click)="addKid()">
-                                                <i class="bi bi-plus-circle"></i>
-                                            </button>
+    
+            <div class="col-12 m-3 p-3 shadow rounded-1 bg-light">
+                <form [formGroup]="kidsDetailForm" id="kidsForm" (ngSubmit)="saveKids(kidsDetailForm)">
+                    <div class="mb-3">
+                        <label for="casenum" class="form-label">Case Number</label>
+                        <input type="number" name="" id="casenum" class="form-control " formControlName="caseNumForm" [value]="childrendPerCase.caseNum" >
+                    </div>
+    
+                    <!-- List Of Kids  -->
+                    <div class="mb-3" formArrayName="kidsList" >
+                        <div class="row" *ngFor="let kid of kidslistArray().controls; let i = index;" [formGroupName]="i">
+                    
+                            <div class="col-4">
+                                <label for="kidDob" class="form-label">Dob</label>
+                                <input type="date"  id="kidDob" class="form-control"  formControlName="childrenDob">
+                            </div>
+    
+                            <div class="col-4">
+                                <label for="kidssn" class="form-label">SSN</label>
+                                <input type="text" name="" id="kidssn" class="form-control " placeholder="xxx-xx-xxxx" formControlName="ssn">
+                            </div>
+                            <div class="col-4">
+                                <label for="action" class="form-label">Action</label>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button type="button" id="action" class="btn btn-primary" (click)="addKid()">
+                                                    <i class="bi bi-plus-circle"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-danger" (click)="removeKid(i)">
+                                                    <i class="  bi bi-trash-fill"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-danger" (click)="removeKid(i)">
-                                                <i class="  bi bi-trash-fill"></i>
-                                            </button>
-                                        </div>
+                                        
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
-           
-            <button type="submit" class="btn btn-primary" (click)="saveKids(kidsDetailForm)" >Submit</button>
-        </div>
-     </div>
+                </form>
+               
+                <button type="submit" class="btn btn-primary" form="kidsForm" >Submit</button>
+            </div>
+         </div>
+    </div>
 </section>

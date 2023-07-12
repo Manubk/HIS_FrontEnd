@@ -39,7 +39,7 @@ savePlan(planForm:NgForm){
   this.plan = planForm.value;
   this.adminService.savePlan(this.plan).subscribe((data:any) => {
     this.planss = data;
-  },(error) => {console.log(error)})
+  });
 }
 
 // Get All The Categoryes
@@ -67,6 +67,12 @@ this.adminService.deletePlan(planId).subscribe((data:any) => {
 
 editPlan(plan:Plan){
   this.plan = plan;
+}
+
+saveEditedPlan(){
+  this.adminService.saveEditedPlas(this.plan).subscribe((data) => {
+    console.log(data);
+  })
 }
 }
 

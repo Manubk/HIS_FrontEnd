@@ -1,5 +1,6 @@
 export class Eligibility {
 
+    eligDeterminId!:number;
     planName!:string;
     planStatus!:string;
     planStartDate!:string;

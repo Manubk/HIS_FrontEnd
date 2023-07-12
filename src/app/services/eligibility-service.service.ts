@@ -15,9 +15,14 @@ export class EligibilityServiceService {
     return this.http.get(this.baseUrl+'eligibility/applicant/'+appId);
   }
 
+  //Get the Eligibility based on  caseNum
+  getEligibilityByCaseNum(caseNum:number){
+    return this.http.get(this.baseUrl+'eligibility/'+caseNum);
+  }
+
   // Create a case AppId 
   createCaseByAppId(appId:number){
-
+    
   }
 
 }

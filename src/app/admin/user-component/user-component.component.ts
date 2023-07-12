@@ -15,7 +15,7 @@ selectedUser:User = new User();
 
 res:any;
 
-users!:User[];
+users:User[] = [];
 
 constructor(private userService:UserServiceService){}
 

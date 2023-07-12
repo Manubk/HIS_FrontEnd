@@ -1,60 +1,62 @@
 <section style="background-color: #eee;" class="p-3 min-vh-100">
-    <div class="row ">
+    <div class="container">
+        <div class="row ">
 
-        <!-- Heading  -->
-        <div class="col-12 m-3 shadow rounded-1 p-3  bg-light ">
-            <form action="">
-                <div class="mb-3">
-                    <label for="" class="form-label">Case Number</label>
-                    <input type="number" name="" id="casenum" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-primary">Determine Eligibility</button>
-                </div>
-            </form>
-        </div>
+            <!-- Heading  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3  bg-light ">
+                <form >
+                    <div class="mb-3">
+                        <label for="caseNum" class="form-label" name="caseNum">  Case Number</label>
+                        <input type="number" name="caseNum" id="casenum" class="form-control" [(ngModel)]="caseNum">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" (click)="getEligibilityByCaseNum()">Determine Eligibility</button>
+                    </div>
+                </form>
+            </div>
 
-        <!-- Body  -->
-        <div class="col-12 m-3 shadow rounded-1 p-3  bg-light ">
-            <form action="">
-                <div class="mb-3">
-                    <label for="" class="form-label">Eligibility Id</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+            <!-- Body  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3  bg-light ">
+                <form action="">
+                    <div class="mb-3">
+                        <label for="eligId" class="form-label">Eligibility Id</label>
+                        <input type="number" name="eligId" id="eligId" class="form-control" [(ngModel)]="eligibility.eligDeterminId" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Plan Name</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligPlanName" class="form-label">Plan Name</label>
+                        <input type="text" name="planName" id="eligPlanName" class="form-control" [(ngModel)]="eligibility.planName" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Plan Status</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligPlanStatus" class="form-label">Plan Status</label>
+                        <input type="text" name="planStatus" id="eligPlanStatus" class="form-control" [(ngModel)]="eligibility.planStatus" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Plan Start Date</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligPlanStartDate" class="form-label">Plan Start Date</label>
+                        <input type="text" name="planStartDate" id="eligPlanStartDate" class="form-control" [(ngModel)]="eligibility.planStartDate" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Plan End Date</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligPlanEndDate" class="form-label">Plan End Date</label>
+                        <input type="text" name="planEndDate" id="eligPlanEndDate" class="form-control" [(ngModel)]="eligibility.planEndDate" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Denial Reason</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligBenefitAmt" class="form-label">Benefite Amount</label>
+                        <input type="number" name="benefitAmount" id="eligBenefitAmt" class="form-control" [(ngModel)]="eligibility.benefitAmount" disabled>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Benifit Amount</label>
-                    <input type="number" name="" id="casenum" class="form-control" disabled>
-                </div>
+                    <div class="mb-3">
+                        <label for="eligDenialReason" class="form-label">Denial Reason</label>
+                        <input type="text" name="denialReason" id="eligDenialReason" class="form-control" [(ngModel)]="eligibility.denialReason" disabled>
+                    </div>
 
 
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </section>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AppRegServiceService } from 'src/app/services/app-reg-service.service';
+import { SharedServiceService } from 'src/app/services/shared-service.service';
 
 @Component({
   selector: 'app-application',
@@ -12,9 +14,9 @@ export class ApplicationComponent {
 
   user:User = new User();
   selectedUser:User = new User();
-  users!:User[];
+  users:User[] = [];
 
-  constructor(private appService:AppRegServiceService){}
+  constructor(private appService:AppRegServiceService , private sharedSer:SharedServiceService , private router:Router){}
 
   ngOnInit(){
     this.getAllAppilcation();
@@ -53,4 +55,9 @@ export class ApplicationComponent {
     })
   }
 
+  //  For applicant use appId fron user
+  createCase(user:User){
+    this.sharedSer.appId = user.appId;
+    this.router.navigateByUrl('/case');
+  }
 }

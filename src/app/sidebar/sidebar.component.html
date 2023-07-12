@@ -1,5 +1,5 @@
 
-    <aside class="float-start bg-light min-vh-100 p-4">
+    <aside class="float-start   bg-light min-vh-100 p-4 ">
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
                 <a routerLink="home" class="nav-link align-middle px-0">
@@ -30,9 +30,9 @@
                     <li class="w-100">
                         <a routerLink='profile' class="nav-link px-0"> <span class="d-none d-sm-inline">Profile</span> </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a routerLink="dashboard" class="nav-link px-0"> <span class="d-none d-sm-inline">Dashboard</span> </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
 
@@ -44,9 +44,9 @@
                     <li class="w-100">
                         <a routerLink="application" class="nav-link px-0"> <span class="d-none d-sm-inline">Create Application</span> </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">View Application</span> </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
 
@@ -65,7 +65,7 @@
                         <a routerLink="income" class="nav-link px-0"> <span class="d-none d-sm-inline">Income Details</span> </a>
                     </li>
                     <li>
-                        <a routerLink="" class="nav-link px-0"> <span class="d-none d-sm-inline">Bank Details</span> </a>
+                        <a routerLink="bank" class="nav-link px-0"> <span class="d-none d-sm-inline">Bank Details</span> </a>
                     </li>
                     <li>
                         <a routerLink="education" class="nav-link px-0"> <span class="d-none d-sm-inline">Education Details</span> </a>
@@ -86,15 +86,16 @@
             </li>
 
             <!-- Correspondence  -->
-            <li>
+            <!-- <li>
                 <a href="#" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi bi-ui-checks"></i> <span class="ms-1 d-none d-sm-inline">Correspondence</span> </a>
-            </li>
+            </li> -->
 
             <!-- Benefit Issuance  -->
             <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                    <i class="fs-4 bi bi-building-check"></i> <span class="ms-1 d-none d-sm-inline">Benefit Issuance</span> </a>
+                <a routerLink="benefitissuance" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-building-check"></i> <span class="ms-1 d-none d-sm-inline">Benefit Issuance</span> 
+                </a>
             </li>
 
             <!-- Reports  -->

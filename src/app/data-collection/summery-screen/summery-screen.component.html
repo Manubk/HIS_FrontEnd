@@ -1,175 +1,244 @@
 <section style="background-color: #eee;" class="p-3 min-vh-100">
-<div class="row">
+  <div class="container">
 
-    <!-- Top Heading  -->
-    <div class="col-12 bg-light m-3 shadow rounded-1">
-        <div class="row">
-            <div class="col-4 m-3 ">
-                <h2>Summery </h2>
-            </div>
-        </div>
-    </div>
-    
-  <div class="col-12 bg-light shadow m-3 rounded-1">
     <div class="row">
-        <div class="col-10">
 
-            <!-- Application Detaila  -->
-            <h5 class="m-3" >Application Details</h5>
-            <form >
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">App Id :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Full Name :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Number :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-                 <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Gender :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Date :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">SSN :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" disabled>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-  </div>
-
-    <!-- Case Details  -->
-    <div class="col-12 bg-light shadow m-3 rounded-1">
+      <!-- Top Heading  -->
+      <div class="col-12 bg-light m-3 shadow rounded-1">
         <div class="row">
-            <div class="col-10">
-    
-                <!-- Case Details  -->
-                <h5 class="m-3" >Case Details</h5>
-                <form action="">
-                    <div class="row mb-3">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Case Num :</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="colFormLabel" name="caseNum" [(ngModel)]="dataCollection.caseNum" disabled>
-                        </div>
-                    </div>
-    
-                    <div class="row mb-3">
-                        <label for="colFormLabel" class="col-sm-2 col-form-label">Plan Name :</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="colFormLabel" name="planName" [(ngModel)]="dataCollection.planName" disabled>
-                        </div>
-                    </div>
-                </form>
+          <div class="col-8 m-3 ">
+            <div class="row">
+              <div class="col-4 m-1">
+                <h2>SUMMERY</h2>
+              </div>
+              <div class="col-4">
+                <input type="number" placeholder="CaseNum" [(ngModel)]="caseNum" class="form-control">
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" (click)="getSummeryByCaseNum()">Search</button>
+              </div>
             </div>
+          </div>
+
         </div>
       </div>
-    
- <!-- Income Details  -->
- <div class="col-12 bg-light shadow m-3 rounded-1">
-    <div class="row">
-        <div class="col-10">
 
-            <!-- Case Details  -->
-            <h5 class="m-3" >Income Details</h5>
-            <form action="">
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Salary :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="empIncome" [(ngModel)]="dataCollection.incomeDetails.empIncome" disabled>
-                    </div>
-                </div>
+      <div *ngIf="dataCollection">
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="row">
+              <div class="m-3">
+                <h5>Application Details</h5>
+              </div>
 
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Rent Income :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="rentIncome" [(ngModel)]="dataCollection.incomeDetails.rentIncome" disabled>
-                    </div>
-                </div>
+              <div class="mb-3">
+                <label for="appId" class="form-label">App Id :</label>
+                <input type="number" class="form-control" id="appId" [(ngModel)]="dataCollection.appRegDto.appId"
+                  disabled>
+              </div>
 
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Property Income :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="propertyIncome" [(ngModel)]="dataCollection.incomeDetails.propertyIncome" disabled>
-                    </div>
-                </div>
-            </form>
+              <div class="mb-3">
+                <label for="appName" class="form-label">App Name :</label>
+                <input type="text" class="form-control" id="appName" [(ngModel)]="dataCollection.appRegDto.fullName"
+                  disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="appEmail" class="form-label">Email :</label>
+                <input type="email" class="form-control" id="appEmail" [(ngModel)]="dataCollection.appRegDto.email"
+                  disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="appPhoneNo" class="form-label">Phone No:</label>
+                <input type="number" class="form-control" id="appPhoneNo" [(ngModel)]="dataCollection.appRegDto.phoneNo"
+                  disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="appGender" class="form-label">Gender :</label>
+                <input type="text" class="form-control" id="appGender" [(ngModel)]="dataCollection.appRegDto.gender"
+                  disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="appSsn" class="form-label">SSN :</label>
+                <input type="number" class="form-control" id="appSsn" [(ngModel)]="dataCollection.appRegDto.ssn"
+                  disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="appDob" class="form-label">Dob :</label>
+                <input type="date" class="form-control" id="appDob" [(ngModel)]="dataCollection.appRegDto.dob" disabled>
+              </div>
+
+            </div>
+          </div>
         </div>
+
+        <!-- Case Details  -->
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="row">
+              <div class="m-3">
+                <h5>Case Details</h5>
+              </div>
+
+              <div class="mb-3">
+                <label for="caseNum" class="form-label">Case Num :</label>
+                <input type="number" class="form-control" id="caseNum" name="caseNum"
+                  [(ngModel)]="dataCollection.caseNum" disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="planName" class="form-label">Plan Name :</label>
+                <input type="text" class="form-control" id="planName" name="planName"
+                  [(ngModel)]="dataCollection.planName" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Income Details  -->
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="row">
+              <div class="m-3">
+                <h5 class="m-3">Income Details</h5>
+              </div>
+
+              <form action="">
+                <div class="mb-3">
+                  <label for="empIncome" class="form-label">Salary :</label>
+                  <input type="number" class="form-control" id="empIncome" name="empIncome"
+                    [(ngModel)]="dataCollection.incomeDto.empIncome" disabled>
+                </div>
+
+                <div class="mb-3">
+                  <label for="rentIncome" class="form-label">Rent Income :</label>
+                  <input type="number" class="form-control" id="rentIncome" name="rentIncome"
+                    [(ngModel)]="dataCollection.incomeDto.rentIncome" disabled>
+                </div>
+
+                <div class="mb-3">
+                  <label for="propertyIncome" class="form-label">Property Income :</label>
+                  <input type="number" class="form-control" id="propertyIncome" name="propertyIncome"
+                    [(ngModel)]="dataCollection.incomeDto.propertyIncome" disabled>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Education Details  -->
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="row">
+              <div class="m-3">
+                <h5>Education Details</h5>
+              </div>
+
+              <div class="mb-3">
+                <label for="highestQual" class="col-sm-2 col-form-label">Highest Degree :</label>
+                <input type="email" class="form-control" id="highestQual" name="highestQual"
+                  [(ngModel)]="dataCollection.educationDto.highestQual" disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="gradYear" class="col-sm-2 col-form-label">Graduation Year :</label>
+                <input type="email" class="form-control" id="gradYear" name="gradYear"
+                  [(ngModel)]="dataCollection.educationDto.gradYear" disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="universityName" class="col-sm-2 col-form-label">University Name :</label>
+                <input type="email" class="form-control" id="universityName" name="universityName"
+                  [(ngModel)]="dataCollection.educationDto.universityName" disabled>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Details  -->
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="row">
+              <div class="m-3">
+                <h5>Bank Details</h5>
+              </div>
+
+              <div class="mb-3">
+                <label for="bankName" class="col-4 col-form-label">Bank Name :</label>
+                <input type="text" class="form-control" id="bankName" name="bankName"
+                  [(ngModel)]="dataCollection.bank.bankName" disabled>
+              </div>
+
+              <div class="mb-3">
+                <label for="bankAccNum" class="col-4 col-form-label">Bank Name :</label>
+                <input type="number" class="form-control" id="bankAccNum" name="accNum"
+                  [(ngModel)]="dataCollection.bank.accNumber" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Details  -->
+        <div class="col-12 bg-light shadow m-3 rounded-1">
+          <div class="container">
+            <div class="m-3">
+              <h5>Kids Details</h5>
+            </div>
+            <div class="mb-3">
+              <form action="">
+                <div class="table-responsive">
+                  <table class="table  table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">Kid SSN</th>
+                        <th scope="col">Kid DOB</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let children of  dataCollection.childrenDtos; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{children.ssn}}</td>
+                        <td>{{children.chidrenDob}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Subbmit   -->
+        <div class="col-12 bg-light m-3 shadow rounded-1">
+          <div class="row">
+            <div class="col-4 m-3 ">
+              <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Record Found  -->
+      <div class="contailer-fluid" *ngIf="!dataCollection">
+        <div class="col-12 bg-light m-3 shadow rounded-1">
+          <div class="row">
+            <app-no-record-found></app-no-record-found>
+          </div> 
+        </div>
+      </div>
+
     </div>
+
   </div>
 
-
-   <!-- Education Details  -->
- <div class="col-12 bg-light shadow m-3 rounded-1">
-    <div class="row">
-        <div class="col-10">
-
-            <h5 class="m-3" >Education Details</h5>
-            <form action="">
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Highest Degree :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="highestQual" [(ngModel)]="dataCollection.educationDetails.highestQual" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Graduation Year :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="gradYear" [(ngModel)]="dataCollection.educationDetails.gradYear" disabled>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">University Name :</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="colFormLabel" name="universityName" [(ngModel)]="dataCollection.educationDetails.universityName" disabled>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-  </div>
-
- <!-- Subbmit   -->
- <div class="col-12 bg-light m-3 shadow rounded-1">
-    <div class="row">
-        <div class="col-4 m-3 ">
-           <button class="btn btn-primary">Submit</button>
-        </div>
-    </div>
-</div>
-
-
-</div>
 </section>

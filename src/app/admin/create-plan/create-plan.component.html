@@ -4,244 +4,298 @@
             <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 bg-light ">
                 <div class="row">
                     <div class="col-4">
-                        <h2>Create Plan</h2>
+                        <h2>CREATE PLAN</h2>
                     </div>
                     <div class="col">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
                             <i class="bi bi-plus-lg"></i>
                             Add Plan
-                          </button>
-                        </div>
+                        </button>
+                    </div>
                 </div>
             </div>
-         </div>
-    
-      <!-- Modal For Adding Plan-->
-    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Plan</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form #planForm="ngForm" (ngSubmit)="savePlan(planForm)" >
-                    <!-- Plan Name  -->
-                         <div class="mb-3">
-                             <label for="planname" class="form-label">Plan Name</label>
-                             <input type="text" class="form-control" id="planname" name="planName" ngModel required>
-                         </div>
-                     
-                      <!-- Plan Category  -->
-                      <div class="mb-3">
-                         <label for="plancategory" class="form-label">Plan Category</label>
-                         <div class="input-group ">
-                             <select class="form-select" name="planCategoryId" id="plancategory" ngModel required>
-                                 <option selected  >--Select--</option>
-                                 <option  *ngFor="let category of  categories | keyvalue" [ngValue]="category.key">{{category.value}}</option>
-                             </select>
-                         </div>
-                      </div>
-         
-                      <!-- Plan Start Date -->
-                      <div class="mb-3">
-                         <label for="planstartdate" class="form-label">Plan Start Date</label>
-                         <div class="input-group">
-                             <input type="date" class="form-control"  id="planstartdate" name="planStartDate"  ngModel  required>
-                             <!-- <span class="input-group-text">
-                                 <i class="bi bi-calendar-check-fill"></i>
-                             </span> -->
-                         </div>
-                      </div>
-         
-                      <!-- Plan End Date  -->
-                      <div class="mb-3">
-                         <label for="planstartdate" class="form-label">Plan End Date</label>
-                         <div class="input-group">
-                             <input type="date" class="form-control"  id="planstartdate" name="planEndDate" ngModel required>
-                             <!-- <span class="input-group-text">
-                                 <i class="bi bi-calendar-check-fill"></i>
-                             </span> -->
-                         </div>
-                      </div>
-         
-                      <!-- Plan Status  -->
-                      <div class="mb-3">
-                         <label for="planstatus">Plan Status</label>
-                         <div class="input-group">
-                             <select class="form-select" id="planstatus" name="activeSw" ngModel>
-                                 <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">{{sta.value}}</option>
-                             </select>
-                         </div>
-                      </div>
-         
-                     <!-- Benefit amount  -->
-                     <div class="mb-3">
-                         <label for="benefitamount" class="form-label">Benefit Amount</label>
-                         <div class="input-group">
-                             <span class="input-group-text">$</span>
-                             <input type="number" class="form-control" aria-label="Amoount" id="benefitamount" name="benefitAmt" ngModel required>
-                             <span class="input-group-text">.00</span>
-                         </div>
-                     </div>
-                  </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </div>
         </div>
-      </div>
-    
-    
-       <!-- Modal For Edting Plan-->
-    <div class="modal fade" id="editplan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Plans</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form  (ngSubmit)="savePlan(planForm)" >
-                    <!-- Plan Name  -->
-                         <div class="mb-3">
-                             <label for="planname" class="form-label">Plan Name</label>
-                             <input type="text" class="form-control" id="planname" name="planName" [value]="plan.planName" required>
-                         </div>
-    
-                      <!-- Plan Category  -->
-                      <div class="mb-3">
-                         <label for="plancategory" class="form-label">Plan Category</label>
-                         <div class="input-group ">
-                             <select class="form-select"  id="plancategory" [value]="plan.planName" required>
-                                 <!-- <option>-- Select --</option> -->
-                                 <option  *ngFor="let plan of  plans | keyvalue" [ngValue]="plan.key">{{plan.value}}</option>
-                             </select>
-                         </div>
-                      </div>
-         
-                      <!-- Plan Start Date -->
-                      <div class="mb-3">
-                         <label for="planstartdate" class="form-label">Plan Start Date</label>
-                         <div class="input-group">
-                             <input type="date" class="form-control"  id="planstartdate" name="planStartDate"  [value]="plan.planStartDate" required>
-                             <!-- <span class="input-group-text">
+
+        <!-- Modal For Adding Plan-->
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Plan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #planForm="ngForm" id="planAddForm" class="needs-validation" (ngSubmit)="savePlan(planForm)">
+
+                            <!-- Plan Name  -->
+                            <div class="mb-3">
+                                <label for="validationCustom01" class="form-label">Plan Name</label>
+                                <input type="text" class="form-control " id="validationCustom01" name="planName" ngModel #planName="ngModel"
+                                    required>
+                                    <!-- Validation  -->
+                                    <div class="m-3">
+                                        <div class="text-success" *ngIf="(planName.valid && (planName.touched || planForm.submitted))">
+                                            Looks good!
+                                        </div>
+
+                                        <div class="text-danger" *ngIf="(planName.touched || planForm.submitted) && planName.invalid">
+                                            <div *ngIf="planName.errors?.['required']" >Plan Name Required :(</div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <!-- Plan Category  -->
+                            <div class="mb-3">
+                                <label for="plancategory" class="form-label">Plan Category</label>
+                                <div class="input-group ">
+                                    <select class="form-select" name="planCategoryId" id="plancategory" #planCategory="ngModel" ngModel
+                                        required>
+                                        <option selected>--Select--</option>
+                                        <option *ngFor="let category of  categories | keyvalue"
+                                            [ngValue]="category.key">{{category.value}}</option>
+                                    </select>
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="((planForm.submitted || planCategory.touched) && planCategory.valid)">
+                                        Looks Good :)
+                                    </div>
+
+                                    <div class="text-danger" *ngIf="((planForm.submitted  || planCategory.touched) && planCategory.invalid)">
+                                        <div>Category Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Plan Start Date -->
+                            <div class="mb-3">
+                                <label for="planstartdate" class="form-label">Plan Start Date</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="planstartdate" #planStartDate="ngModel" name="planStartDate"
+                                        ngModel required>
+                                    <!-- <span class="input-group-text">
                                  <i class="bi bi-calendar-check-fill"></i>
                              </span> -->
-                         </div>
-                      </div>
-         
-                      <!-- Plan End Date  -->
-                      <div class="mb-3">
-                         <label for="planstartdate" class="form-label">Plan End Date</label>
-                         <div class="input-group">
-                             <input type="date" class="form-control"  id="planstartdate" name="planEndDate" [value]="plan.planEndDate" required>
-                             <!-- <span class="input-group-text">
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="((planStartDate.touched || planForm.submitted) && planStartDate.valid )">
+                                        Locks Good ;)
+                                    </div>
+
+                                    <div class="text-danger" *ngIf="((planStartDate.touched || planForm.submitted) && planStartDate.invalid)">
+                                        <div *ngIf="planStartDate.errors?.['required']" >Start Date Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Plan End Date  -->
+                            <div class="mb-3">
+                                <label for="planstartdate" class="form-label">Plan End Date</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="planstartdate" #planEndDate="ngModel" name="planEndDate"
+                                        ngModel required>
+                                    <!-- <span class="input-group-text">
                                  <i class="bi bi-calendar-check-fill"></i>
                              </span> -->
-                         </div>
-                      </div>
-         
-                      <!-- Plan Status  -->
-                      <div class="mb-3">
-                         <label for="planstatus">Plan Status</label>
-                         <div class="input-group">
-                             <select class="form-select"  id="planstatus" name="activeSw" [value]="plan.activeSw">
-                                 <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">{{sta.value}}</option>
-                             </select>
-                         </div>
-                      </div>
-         
-                     <!-- Benefit amount  -->
-                     <div class="mb-3">
-                         <label for="benefitamount" class="form-label">Benefit Amount</label>
-                         <div class="input-group">
-                             <span class="input-group-text">$</span>
-                             <input type="number" class="form-control" aria-label="Amoount" id="benefitamount" name="benefitAmt" [value]="plan.benefitAmt" required>
-                             <span class="input-group-text">.00</span>
-                         </div>
-                     </div>
-                  </form>
+                                </div>
+
+                                  <!-- Validation  -->
+                                  <div class="m-1">
+                                    <div class="text-success" *ngIf="((planEndDate.touched || planForm.submitted) && planEndDate.valid )">
+                                        Locks Good ;)
+                                    </div>
+
+                                    <div class="text-danger" *ngIf="((planEndDate.touched || planForm.submitted) && planEndDate.invalid)">
+                                        <div *ngIf="planEndDate.errors?.['required']" >Start Date Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Plan Status  -->
+                            <div class="mb-3">
+                                <label for="planstatus">Plan Status</label>
+                                <div class="input-group">
+                                    <select class="form-select" id="planstatus" name="activeSw" ngModel>
+                                        <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">
+                                            {{sta.value}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Benefit amount  -->
+                            <div class="mb-3">
+                                <label for="benefitamount" class="form-label">Benefit Amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" aria-label="Amoount" id="benefitamount"
+                                        name="benefitAmt" #benefitAmt="ngModel" ngModel required>
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+
+                              <!-- Validation  -->
+                              <div class="m-1">
+                                <div class="text-success" *ngIf="((benefitAmt.touched || planForm.submitted) && benefitAmt.valid )">
+                                    Locks Good ;)
+                                </div>
+
+                                <div class="text-danger" *ngIf="((benefitAmt.touched || planForm.submitted) && benefitAmt.invalid)">
+                                    <div *ngIf="benefitAmt.errors?.['required']" >Start Date Required :(</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="planAddForm"  [disabled]="planForm.invalid" >Save</button>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-          </div>
         </div>
-      </div>
-    
-    
-    
-      <div class="row">
-     <!-- All Plans  -->
-     <div class="col-12 m-3 shadow rounded-1 p-3 bg-light">
+
+
+        <!-- Modal For Edting Plan-->
+        <div class="modal fade" id="editplan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Plans</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form (ngSubmit)="saveEditedPlan()" id="editplanForm">
+                            <!-- Plan Name  -->
+                            <div class="mb-3">
+                                <label for="planname" class="form-label">Plan Name</label>
+                                <input type="text" class="form-control" id="planname" name="planName"
+                                    [(ngModel)]="plan.planName" required>
+                            </div>
+
+                            <!-- Plan Category  -->
+                            <div class="mb-3">
+                                <label for="plancategory" class="form-label">Plan Category</label>
+                                <div class="input-group ">
+                                    <select class="form-select" id="plancategory" name="planCategoryId" [(ngModel)]="plan.planCategoryId" required>
+                                        <!-- <option>-- Select --</option> -->
+                                        <option *ngFor="let plan of  plans | keyvalue" [ngValue]="plan.key">
+                                            {{plan.value}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Plan Start Date -->
+                            <div class="mb-3">
+                                <label for="planstartdate" class="form-label">Plan Start Date</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="planstartdate" name="planStartDate"
+                                        [(ngModel)]="plan.planStartDate" required>
+                                    <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                                </div>
+                            </div>
+
+                            <!-- Plan End Date  -->
+                            <div class="mb-3">
+                                <label for="planstartdate" class="form-label">Plan End Date</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="planstartdate" name="planEndDate"
+                                        [(ngModel)]="plan.planEndDate" required>
+                                    <!-- <span class="input-group-text">
+                                 <i class="bi bi-calendar-check-fill"></i>
+                             </span> -->
+                                </div>
+                            </div>
+
+                            <!-- Plan Status  -->
+                            <div class="mb-3">
+                                <label for="planstatus">Plan Status</label>
+                                <div class="input-group">
+                                    <select class="form-select" id="planstatus" name="activeSw" [(ngModel)]="plan.activeSw">
+                                        <option [value]="sta.key" *ngFor="let sta of planStatus | keyvalue">
+                                            {{sta.value}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Benefit amount  -->
+                            <div class="mb-3">
+                                <label for="benefitamount" class="form-label">Benefit Amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" aria-label="Amoount" id="benefitamount"
+                                        name="benefitAmt" [(ngModel)]="plan.benefitAmt" required>
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="editplanForm">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="row">
-            <div class="col-12">
-                <h2 class="text-center ">All Plans</h2>
-            </div>
-            <div class="col-12">
-                <div class="row mb-3 p-1 bg-dark-subtle">
-                    <div class="col-1 text-center ">
-                        <Strong class="">Name</Strong>
+            <!-- All Plans  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3 bg-light" *ngIf="planss.length > 0">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-center ">All Plans</h2>
                     </div>
-                    <div class="col-1 text-center ">
-                        <Strong class="">Category</Strong>
-                    </div>
-                    <div class="col-2 text-center">
-                        <Strong class="">Start Date</Strong>
-                    </div>
-                    <div class="col-2 text-center">
-                        <Strong class="">End Date</Strong>
-                    </div>
-                    <div class="col-2 text-center">
-                        <Strong class="">Amount</Strong>
-                    </div>
-                    <div class="col-2 text-center">
-                        <Strong class="">Status</Strong>
-                    </div>
-                    <div class="col-2 text-center">
-                        <Strong class="">Action</Strong>
-                    </div>
-                </div>
-    
-                <div class="row mb-2" *ngFor="let plan of planss">
-                    <div class="col-1">
-                        <p class="">{{plan.planName}}</p>
-                    </div>
-                    <div class="col-1">
-                        <p class="">{{plan.planCategoryId}}</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="">{{plan.planStartDate}}</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="">{{plan.planEndDate}}</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="">{{plan.benefitAmt}}</p>
-                    </div>
-                    <div class="col-2">
-                        <p class="">{{plan.activeSw}}</p>
-                    </div>
-                    <div class="col-2">
+
+                    <div class="col-12">
                         <div class="row">
-                            <div class="col-4">
-                                <button class="btn btn-warning btn" data-bs-toggle="modal" data-bs-target="#editplan" (click)="editPlan(plan)">Edit</button>
-                            </div>
-                            <div class="col-4">
-                                <button class="btn btn-danger btn" (click)="deletePlan(plan.planId)">Delete</button>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover ">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let plan of planss">
+                                            <td>{{plan.planName}}</td>
+                                            <td>{{plan.planCategoryId}}</td>
+                                            <td>{{plan.planStartDate}}</td>
+                                            <td>{{plan.planEndDate}}</td>
+                                            <td>{{plan.benefitAmt}}</td>
+                                            <td>{{plan.activeSw}}</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-warning me-1" data-bs-toggle="modal"
+                                                    data-bs-target="#editplan" (click)="editPlan(plan)">Edit</button>
+                                                <button class="btn btn-danger"
+                                                    (click)="deletePlan(plan.planId)">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-    
                     </div>
                 </div>
             </div>
+
+            <!-- NO Data Found  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3 bg-light" *ngIf="planss.length <=0">
+                <app-no-record-found></app-no-record-found>
+            </div>
+
         </div>
     </div>
-      </div>
-    </div>
-    
+
 </section>

@@ -1,238 +1,435 @@
- <div class="container-fluid">
-    <div class="row ">
-        <div class="col-12 m-3 shadow rounded-1 p-3 fs-4 ">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Create User</h2>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="bi bi-plus-lg"></i>
-                        Add User
-                      </button>
-                 </div>
-            </div>
-        </div>
-     </div>
-
-  <!-- Modal For Adding User-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form #userForm="ngForm" id="addUser" (ngSubmit)="saveUser(userForm)">
-
-                <!-- User Name  -->
-                     <div class="mb-3">
-                         <label for="addUserFullName" class="form-label">User Name</label>
-                         <input type="text" class="form-control" id="addUserFullName"name="fullName" ngModel  required>
-                     </div>
-                 
-                  <!-- User Email  -->
-                  <div class="mb-3">
-                     <label for="addUserEmail" class="form-label">Email</label>
-                     <div class="input-group ">
-                        <input type="email" class="form-control" placeholder="example@email.com"  id="addUserEmail" name="email" ngModel>
-                     </div>
-                  </div>
-     
-                  <!-- User Phone No -->
-                  <div class="mb-3">
-                     <label for="addUserPhone" class="form-label">Phone No</label>
-                     <div class="input-group">
-                         <input type="number" class="form-control"  id="addUserPhone"  name="phoneNo"  ngModel required>
-                     </div>
-                  </div>
-     
-                  <!-- User Gender -->
-                  <div class="mb-3">
-                     <label for="addUserGender" class="form-label">Gender</label>
-                     <div class="input-group">
-                         <select class="form-select" name="gender" ngModel id="addUserGender">
-                            <option value="M">Male</option>
-                            <option value="F">FeMale</option>
-                            <option value="O">Others</option>
-                         </select>
-                     </div>
-                  </div>
-     
-                  <!--User SSN  -->
-                  <div class="mb-3">
-                     <label for="addUserSsn" class="form-label">SSN</label>
-                     <div class="input-group">
-                        <input type="text" class="form-control" id="addUserSsn" placeholder="xxx-xx-xxxx" name="ssn" ngModel required="true">
-                     </div>
-                  </div>
-     
-                 <!-- User Dob  -->
-                 <div class="mb-3">
-                     <label for="addUserDob" class="form-label">Dob</label>
-                         <input type="date" class="form-control" aria-label="Amount" id="addUserDob" name="dob" ngModel required>
-                 </div>
-
-                 <div class="mb-3">
-                    <label for="addUserRole" class="form-label">Role</label>
-                    <select class="form-select" name="role" id="addUserRole" ngModel>
-                        <option value="admin">Admin</option>
-                        <option value="worker">Worker</option>
-                    </select>
-                 </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" form="addUser">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-   <!-- Modal For Edting User-->
-<div class="modal fade" id="usereditmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form #editUser="ngForm">
-                <!-- User Name  -->
-                     <div class="mb-3">
-                         <label for="editUserName" class="form-label">User Name</label>
-                         <input type="text" class="form-control" id="editUserName" name="fullName"  [(ngModel)]="selectedUser.fullName"  >
-                     </div>
-                 
-                  <!-- User Email  -->
-                  <div class="mb-3">
-                     <label for="editUserEmail" class="form-label">Email</label>
-                     <div class="input-group ">
-                        <input type="email" class="form-control" placeholder="example@email.com" name="email" id="editUserEmail" name="email" [(ngModel)]="selectedUser.email">
-                     </div>
-                  </div>
-     
-                  <!-- User Phone No -->
-                  <div class="mb-3">
-                     <label for="editUserPhone" class="form-label">Phone No</label>
-                     <div class="input-group">
-                         <input type="number" class="form-control"  id="editUserPhone"  name="phoneNo"  [(ngModel)]="selectedUser.phoneNo" required>
-                     </div>
-                  </div>
-     
-                  <!-- User Gender -->
-                  <div class="mb-3">
-                     <label for="editUserGender" class="form-label">Gender</label>
-                     <div class="input-group">
-                         <select class="form-select" name="gender" id="editUserGender"   [(ngModel)]="selectedUser.gender">
-                            <option value="M">Male</option>
-                            <option value="F">FeMale</option>
-                            <option value="O">Others</option>
-                         </select>
-                     </div>
-                  </div>
-     
-                  <!--User SSN  -->
-                  <div class="mb-3">
-                     <label for="editUserSsn">SSN</label>
-                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="xxx-xx-xxxx" name="ssn" id="editUserSsn"  [(ngModel)]="selectedUser.ssn">
-                     </div>
-                  </div>
-     
-                 <!-- User Dob  -->
-                 <div class="mb-3">
-                     <label for="editUserDob" class="form-label">Dob</label>
-                         <input type="date" class="form-control" aria-label="Amount" id="editUserDob" name="dob"  required [(ngModel)] ="selectedUser.dob">
-                 </div>
-                 <div class="mb-3">
-                    <label for="userrole" class="form-label">Role</label>
-                    <select class="form-select" name="role" id="editUserRole" [(ngModel)]="selectedUser.role">
-                        <option value="admin">Admin</option>
-                        <option value="worker">Worker</option>
-                    </select>
-                 </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" (click)="updateUser()">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
- <!-- All Plans  -->
- <div class="col-12 m-3 shadow rounded-1 p-2 ">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-center ">All Users</h2>
-        </div>
-        <div class="col-12">
-            <div class="row">
-                <Table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sl No</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">EMAIL</th>
-                            <th scope="col">PHONE</th>
-                            <th scope="col">GENDER</th>
-                            <th scope="col">SSN</th>
-                            <th scope="col">DOB</th>
-                            <th scope="col">ROLE</th>
-                            <th scope="col">ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of users ; let i = index;">
-                            <td>
-                                {{i+1}}
-                            </td>
-                            <td>
-                                {{user.fullName}}
-                            </td>
-                            <td>
-                                {{user.email}}
-                            </td>
-                            <td>
-                                {{user.phoneNo}}
-                            </td>
-                            <td>
-                               {{user.gender}}
-                            </td>
-                            <td>
-                                {{user.ssn}}
-                            </td>
-                            <td>
-                                 {{user.dob}}
-                            </td>
-                            <td>
-                                {{user.role}}
-                            </td>
-                            <td>
-                                <button class="btn btn-info btn-sm m-1" type="button" data-bs-toggle="modal" data-bs-target="#usereditmodal" (click)="onEditUser(user)">Edit</button>
-                                <button class="btn btn-danger btn-sm m-1" (click)="userStatusChange(user.accId)">De Activate</button>
-                                <!-- <button class="btn btn-danger btn-sm m-1">Activate</button> -->
-                                <button class="btn btn-danger btn-sm m-1" (click)="deleteUser(user.accId)">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-
+<section style="background-color: #eee; " class="min-vh-100">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4  bg-light">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>CREATE USER</h2>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            <i class="bi bi-plus-lg"></i>
+                            Add User
+                        </button>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Modal For Adding User-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #userForm="ngForm" id="addUser" (ngSubmit)="saveUser(userForm)" novalidate>
+
+                            <!-- User Name  -->
+                            <div class="mb-3">
+                                <label for="addUserFullName" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="addUserFullName" name="fullName"
+                                    #fullName="ngModel" ngModel required maxlength="20">
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div *ngIf="fullName.valid && (fullName.touched || userForm.submitted)"
+                                        class="text-success">
+                                        Looks Good :)
+                                    </div>
+
+                                    <div *ngIf="(fullName.touched || userForm.submitted) " class="text-danger">
+                                        <div *ngIf="fullName.errors?.['required']"> Name Required ; </div>
+                                        <div *ngIf="fullName.errors?.['maxlength']">Max 20 Char !( </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Email  -->
+                            <div class="mb-3">
+                                <label for="addUserEmail" class="form-label">Email</label>
+                                <div class="input-group ">
+                                    <input type="email" class="form-control" placeholder="example@email.com"
+                                        id="addUserEmail" name="email" email="true" #email="ngModel" ngModel required>
+                                </div>
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="email.touched && (email.valid || userForm.submitted)">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger" *ngIf="(email.touched || userForm.submitted)">
+                                        <div *ngIf="email.errors?.['required']">Email Required :( </div>
+                                        <div *ngIf=" email.errors?.['email']">Valid Email Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Phone No -->
+                            <div class="mb-3">
+                                <label for="addUserPhone" class="form-label">Phone No</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="addUserPhone" name="phoneNo"
+                                        minlength="10" maxlength="10" #phone="ngModel" ngModel required>
+                                </div>
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="(phone.touched || userForm.submitted) && phone.valid">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger"
+                                        *ngIf="(phone.touched || userForm.submitted) && phone.invalid">
+                                        <div *ngIf="phone.errors?.['required']"> Number Required :( </div>
+                                        <div *ngIf="phone.errors?.['minlength']">Min 10 numbers !</div>
+                                        <div class="div" *ngIf="phone.errors?.['maxlength']">Max 10 dig</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Gender -->
+                            <div class="mb-3">
+                                <label for="addUserGender" class="form-label">Gender</label>
+                                <div class="input-group">
+                                    <select class="form-select" name="gender" ngModel id="addUserGender"
+                                        #gender="ngModel" required>
+                                        <option value="M">Male</option>
+                                        <option value="F">FeMale</option>
+                                        <option value="O">Others</option>
+                                    </select>
+                                </div>
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="(gender.touched || userForm.submitted) && gender.valid">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger"
+                                        *ngIf="gender.invalid && (gender.touched || userForm.submitted)">
+                                        <div *ngIf="gender.errors?.['required']">Gender Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--User SSN  -->
+                            <div class="mb-3">
+                                <label for="addUserSsn" class="form-label">SSN</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="addUserSsn" placeholder="xxx-xx-xxxx"
+                                        min="9" name="ssn" #ssn="ngModel" ngModel required>
+                                </div>
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="ssn.valid && (ssn.touched || userForm.submitted)">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger" *ngIf="ssn.invalid && (ssn.touched || userForm.submitted)">
+                                        <div *ngIf="ssn.errors?.['required']"> Valid SSN Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Dob  -->
+                            <div class="mb-3">
+                                <label for="addUserDob" class="form-label">Dob</label>
+                                <input type="date" class="form-control" aria-label="Amount" id="addUserDob" name="dob"
+                                    #dob="ngModel" ngModel required>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="(userForm.submitted || dob.touched) && dob.valid">
+                                        Looks Good :)
+                                    </div>
+
+                                    <div class="text-danger" *ngIf="(userForm.submitted || dob.touched) && dob.invalid">
+                                        <div *ngIf="dob.errors?.['required']">Dob Required :)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Role  -->
+                            <div class="mb-3">
+                                <label for="addUserRole" class="form-label">Role</label>
+                                <select class="form-select " name="role" id="addUserRole" #role="ngModel" ngModel
+                                    required>
+                                    <option value="admin">Admin</option>
+                                    <option value="worker">Worker</option>
+                                </select>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="role.valid && (role.touched || userForm.submitted)">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger"
+                                        *ngIf="role.invalid && (role.touched || userForm.submitted)">
+                                        <div *ngIf="role.errors?.['required']">Select Role !</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="addUser">Save</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+        <!-- Modal For Edting User-->
+        <div class="modal fade" id="usereditmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form #editUser="ngForm">
+                            <!-- User Name  -->
+                            <div class="mb-3">
+                                <label for="editUserName" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="editUserName" name="fullName"
+                                    #name="ngModel" [(ngModel)]="selectedUser.fullName">
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="((name.touched || editUser.submitted) && name.valid)">
+                                        Looks Good :)
+                                    </div>
+
+                                    <div class="text-danger"
+                                        *ngIf="((name.touched || editUser.submitted ) && name.invalid)">
+                                        <div *ngIf="name.errors?.['required']">Name Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Email  -->
+                            <div class="mb-3">
+                                <label for="editUserEmail" class="form-label">Email</label>
+                                <div class="input-group ">
+                                    <input type="email" class="form-control" placeholder="example@email.com"
+                                        name="email" id="editUserEmail" name="email" [(ngModel)]="selectedUser.email">
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="email.valid && (email.touched || editUser.submitted)">
+                                        Looks Good ;)
+                                    </div>
+
+                                    <div class="text-danger"
+                                        *ngIf="(email.touched || editUser.submitted) && email.invalid">
+                                        <div *ngIf="email.errors?.['required']">Email Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Phone No -->
+                            <div class="mb-3">
+                                <label for="editUserPhone" class="form-label">Phone No</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="editUserPhone" name="phoneNo"
+                                        [(ngModel)]="selectedUser.phoneNo" #phoneNo="ngModel" required>
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="(phoneNo.touched || editUser.submitted) && phoneNo.valid">
+                                        Looks Good ;)
+                                    </div>
+
+                                    <div class="text-damger"
+                                        *ngIf="(phoneNo.touched || editUser.submitted) && phoneNo.invalid">
+                                        <div *ngIf="phoneNo.errors?.['required']">Number Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Gender -->
+                            <div class="mb-3">
+                                <label for="editUserGender" class="form-label">Gender</label>
+                                <div class="input-group">
+                                    <select class="form-select" name="gender" id="editUserGender"
+                                        [(ngModel)]="selectedUser.gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">FeMale</option>
+                                        <option value="O">Others</option>
+                                    </select>
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="(gender.touched || editUser.submitted) && gender.valid">
+                                        Looks Good ;)
+                                    </div>
+
+                                    <div class="text-danger"
+                                        *ngIf="(gender.touched || editUser.submitted) && gender.invalid">
+                                        <div *ngIf="gender.errors?.['required']">Select Gender :( </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--User SSN  -->
+                            <div class="mb-3">
+                                <label for="editUserSsn">SSN</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="xxx-xx-xxxx" name="ssn"
+                                        id="editUserSsn" [(ngModel)]="selectedUser.ssn">
+                                </div>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="ssn.valid && (ssn.touched || userForm.submitted)">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger" *ngIf="ssn.invalid && (ssn.touched || userForm.submitted)">
+                                        <div *ngIf="ssn.errors?.['required']"> Valid SSN Required :(</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Dob  -->
+                            <div class="mb-3">
+                                <label for="editUserDob" class="form-label">Dob</label>
+                                <input type="date" class="form-control" aria-label="Amount" id="editUserDob" name="dob"
+                                    required [(ngModel)]="selectedUser.dob">
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success" *ngIf="(userForm.submitted || dob.touched) && dob.valid">
+                                        Looks Good :)
+                                    </div>
+
+                                    <div class="text-danger" *ngIf="(userForm.submitted || dob.touched) && dob.invalid">
+                                        <div *ngIf="dob.errors?.['required']">Dob Required :)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role  -->
+                            <div class="mb-3">
+                                <label for="userrole" class="form-label">Role</label>
+                                <select class="form-select" name="role" id="editUserRole"
+                                    [(ngModel)]="selectedUser.role">
+                                    <option value="admin">Admin</option>
+                                    <option value="worker">Worker</option>
+                                </select>
+
+                                <!-- Validation  -->
+                                <div class="m-1">
+                                    <div class="text-success"
+                                        *ngIf="role.valid && (role.touched || userForm.submitted)">
+                                        Looks Good :)
+                                    </div>
+                                    <div class="text-danger"
+                                        *ngIf="role.invalid && (role.touched || userForm.submitted)">
+                                        <div *ngIf="role.errors?.['required']">Select Role !</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" (click)="updateUser()">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <!-- All Plans  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4  bg-light " *ngIf="users.length > 0">
+                <div class="row">
+                    <div class="col-12 mb-3 ">
+                        <h2 class="text-center ">All Users</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <Table class="table table-sm table-hover  ">
+                                    <thead class=" text-center">
+                                        <tr>
+                                            <th scope="col ">Sl No</th>
+                                            <th scope="col">NAME</th>
+                                            <th scope="col">EMAIL</th>
+                                            <th scope="col">PHONE</th>
+                                            <th scope="col">GENDER</th>
+                                            <th scope="col">SSN</th>
+                                            <th scope="col">DOB</th>
+                                            <th scope="col">ROLE</th>
+                                            <th scope="col">ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of users ; let i = index;">
+                                            <td>
+                                                {{i+1}}
+                                            </td>
+                                            <td>
+                                                {{user.fullName}}
+                                            </td>
+                                            <td>
+                                                {{user.email}}
+                                            </td>
+                                            <td>
+                                                {{user.phoneNo}}
+                                            </td>
+                                            <td>
+                                                {{user.gender}}
+                                            </td>
+                                            <td>
+                                                {{user.ssn}}
+                                            </td>
+                                            <td>
+                                                {{user.dob}}
+                                            </td>
+                                            <td>
+                                                {{user.role}}
+                                            </td>
+                                            <td class="text-center">
+                                                <button class="btn btn-info btn-sm m-1" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#usereditmodal"
+                                                    (click)="onEditUser(user)">Edit</button>
+                                                <button class="btn btn-danger btn-sm m-1"
+                                                    (click)="userStatusChange(user.accId)">De Act</button>
+                                                <!-- <button class="btn btn-danger btn-sm m-1">Activate</button> -->
+                                                <button class="btn btn-danger btn-sm m-1"
+                                                    (click)="deleteUser(user.accId)">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- No Record F0und  -->
+            <div class="col-12 m-3 shadow rounded-1 p-3 fs-4  bg-light " *ngIf="users.length <=0 ">
+                <app-no-record-found></app-no-record-found>
+            </div>
+        </div>
+
     </div>
-</div>
-
-
- 
+</section>

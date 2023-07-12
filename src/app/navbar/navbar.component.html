@@ -1,29 +1,32 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    
+<nav class="navbar navbar-expand-lg bg-light sticky-top ">
+
   <div class="container-fluid ">
-      <a class="navbar-brand" routerLink="home" >HIS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <a class="navbar-brand" routerLink="home">
+      <img src="../../assets/Images/His Logo.png" class="rounded-2" height="30" alt="HiS logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-     <!-- Nav Content  -->
-      <div class="collpase navbar-collapse  " id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+    <!-- Nav Content  -->
+    <div class="collpase navbar-collapse  " id="navbarNav">
+      <ul class="navbar-nav ms-auto">
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="home" >home</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="home">home</a>
+        </li>
 
-          <li class="nav-item active">
+        <!-- <li class="nav-item active">
             <a class="nav-link active" aria-current="page">Log Out</a>
-          </li>
+          </li> -->
 
-          <li class="nav-item active">
-            <a class="nav-link active" aria-current="page">Contact Us</a>
-          </li>
+        <li class="nav-item active">
+          <button routerLink="contact" class="btn btn-outline-dark active">Contact Us</button>
+        </li>
 
 
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

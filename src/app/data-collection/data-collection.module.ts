@@ -8,6 +8,7 @@ import { KidsDetailsComponent } from './kids-details/kids-details.component';
 import { SummeryScreenComponent } from './summery-screen/summery-screen.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { UtilityModule } from '../utility/utility.module';
 
 
 
@@ -25,7 +26,8 @@ import { BankDetailsComponent } from './bank-details/bank-details.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UtilityModule
   ]
 })
 export class DataCollectionModule { }

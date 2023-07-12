@@ -2,7 +2,6 @@ import { ApplicationInitStatus, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { PlanComponent } from './admin/plan/plan.component';
 import { CreatePlanComponent } from './admin/create-plan/create-plan.component';
 import { UserComponentComponent } from './admin/user-component/user-component.component';
 import { ProfileComponent } from './usermanagement/profile/profile.component';
@@ -17,6 +16,8 @@ import { KidsDetailsComponent } from './data-collection/kids-details/kids-detail
 import { SummeryScreenComponent } from './data-collection/summery-screen/summery-screen.component';
 import { EligibilityComponent } from './eligibility-determination/eligibility/eligibility.component';
 import { BankDetailsComponent } from './data-collection/bank-details/bank-details.component';
+import { BenefitIssanceComponent } from './benefit-issuance/benefit-issance/benefit-issance.component';
+import { ContactusComponent } from './contactus/contactus.component';
 import { EligibilityReportsComponent } from './report/eligibility-reports/eligibility-reports.component';
 
 const routes: Routes = [
@@ -36,7 +37,10 @@ const routes: Routes = [
   {path:'summery',component:SummeryScreenComponent},
   {path:'eligibility',component:EligibilityComponent},
   {path:'bank',component:BankDetailsComponent},
-  {path:'eligibilityReports',component:EligibilityReportsComponent}
+  {path:'eligibilityReports',component:EligibilityReportsComponent},
+  {path:'benefitissuance',component:BenefitIssanceComponent},
+  {path:'contact',component:ContactusComponent}
+
   
 ];
 

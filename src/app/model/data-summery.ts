@@ -2,20 +2,23 @@ import { BankDetails } from "./bank-details";
 import { EducationDetails } from "./education-details";
 import { IncomeDetails } from "./income-details";
 import { KidDetails } from "./kid-details";
+import { User } from "./user";
 
 export class DataSummery {
 
     caseNum!:number;
 
+    appRegDto!:User;
+
     planName!:string;
 
-    incomeDetails!:IncomeDetails;
+    incomeDto!:IncomeDetails;
 
-    educationDetails!:EducationDetails;
+    educationDto!:EducationDetails;
 
-    bankDetails!:BankDetails;
+    bank!:BankDetails;
 
-    kids!:KidDetails;
+    childrenDtos!:KidDetails[];
 
     ssn!:number;
 }
